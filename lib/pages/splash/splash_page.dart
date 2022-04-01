@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_task1_app/data/hive/task_hive.dart';
 import 'package:weather_task1_app/di/di.dart';
@@ -28,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
     }
     Navigator.pushReplacement(
       context,
-      CupertinoPageRoute(builder: (_) => const MainPage()),
+      MaterialPageRoute(builder: (_) => const MainPage()),
     );
   }
 
