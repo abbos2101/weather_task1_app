@@ -57,7 +57,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       await _taskHive.saveCityCode(event.cityCode);
       emit(MainSuccessState(weather: _weather));
     } catch (e) {
-      emit(MainFailState(message: "$e"));
+      emit(const MainFailState(message: "Xatolik sodir bo'ldi :("));
     }
   }
 
