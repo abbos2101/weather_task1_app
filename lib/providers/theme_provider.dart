@@ -6,7 +6,7 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeMode get mode => _mode;
 
-  static ThemeProvider of(BuildContext context, {bool listen = true}) {
+  static ThemeProvider of(BuildContext context, {bool listen = false}) {
     return Provider.of<ThemeProvider>(context, listen: listen);
   }
 

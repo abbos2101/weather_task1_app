@@ -19,3 +19,12 @@ class MainFindEvent extends MainEvent {
   @override
   List<Object?> get props => [cityCode];
 }
+
+class MainChangeThemeEvent extends MainEvent {
+  final bool isLight;
+
+  const MainChangeThemeEvent({required this.isLight});
+
+  @override
+  List<Object?> get props => [isLight];
+}

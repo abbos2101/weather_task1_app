@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_task1_app/data/utils/themes.dart';
 import 'package:weather_task1_app/di/di.dart';
 import 'package:weather_task1_app/pages/main/main_page.dart';
+import 'package:weather_task1_app/pages/splash/splash_page.dart';
 import 'package:weather_task1_app/providers/theme_provider.dart';
 
 void main() async {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             theme: MyThemes.light(),
             darkTheme: MyThemes.dark(),
             themeMode: theme.mode,
-            home: const MainPage(),
+            home: const SplashPage(),
           );
         },
       ),

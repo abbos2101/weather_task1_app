@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomSafeArea extends StatefulWidget {
   final Widget child;
-  final Color? color;
   final GestureTapCallback? onTap;
   final WillPopCallback? onWillPop;
 
   const CustomSafeArea({
     Key? key,
     required this.child,
-    this.color,
     this.onTap,
     this.onWillPop,
   }) : super(key: key);
@@ -37,7 +35,7 @@ class _CustomSafeAreaState extends State<CustomSafeArea> {
       },
       behavior: HitTestBehavior.opaque,
       child: Container(
-        color: widget.color,
+        color: Theme.of(context).appBarTheme.backgroundColor,
         child: widget.onWillPop == null
             ? SafeArea(child: widget.child)
             : WillPopScope(

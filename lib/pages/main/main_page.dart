@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:weather_task1_app/providers/theme_provider.dart';
 import 'package:weather_task1_app/widgets/custom_drawer/custom_drawer.dart';
 import 'package:weather_task1_app/widgets/custom_safearea.dart';
 import 'package:weather_task1_app/widgets/custom_weather_body.dart';
@@ -18,6 +19,16 @@ class _MainPageState extends State<MainPage> {
   final bloc = MainBloc()..add(const MainLoadEvent());
 
   @override
+  void initState() {
+    ThemeProvider.of(context).addListener(() {
+      bloc.add(MainChangeThemeEvent(
+        isLight: ThemeProvider.of(context).isLight,
+      ));
+    });
+    super.initState();
+  }
+
+  @override
   void dispose() {
     bloc.close();
     super.dispose();
@@ -28,7 +39,6 @@ class _MainPageState extends State<MainPage> {
     return BlocProvider.value(
       value: bloc,
       child: CustomSafeArea(
-        color: Theme.of(context).appBarTheme.backgroundColor,
         child: Scaffold(
           key: key,
           appBar: AppBar(
